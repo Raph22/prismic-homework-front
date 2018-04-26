@@ -1,0 +1,15 @@
+<h1 style="text-align:center">
+  Bienvenue sur le {{ title }}!
+</h1>
+
+<mat-form-field>
+  <input matInput [(ngModel)]="searchTerm"  placeholder="Repository">
+</mat-form-field>
+
+<button mat-raised-button color="primary" required (click)="search()">Search</button>
+
+<app-message></app-message>
+
+<mat-nav-list>
+  <a mat-list-item href="/{{repository.owner}}/{{repository.name}}" *ngFor="let repository of repositories">{{repository.owner}}/{{repository.name}}</a>
+</mat-nav-list>

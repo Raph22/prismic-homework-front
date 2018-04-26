@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css"; /* Theme Angular Material */
+@import "~angular-vertical-timeline/dist/vertical-timeline.css"; /* Vertical timeline */
+
+body {
+    padding: 0 25% 0 25%;
+}
+
+
+/*Timeline*/
+.timeline-item:nth-child(odd) .timeline-content .inner-content { 
+    margin-top: 50px;
+}
+
+.timeline-content {
+    min-height: 6em;
+}
+
+

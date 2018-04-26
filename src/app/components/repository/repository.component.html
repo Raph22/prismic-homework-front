@@ -1,0 +1,37 @@
+<h1>{{owner}}/{{repository}}</h1>
+<app-message></app-message>
+
+<mat-tab-group>
+  <mat-tab label="Contributeurs">
+    <mat-list>
+      <mat-list-item *ngFor="let contributor of contributors">
+        {{contributor.name}}
+        <mat-divider></mat-divider>
+      </mat-list-item>
+      
+    </mat-list>
+  </mat-tab>
+
+
+  <mat-tab label="Impact contributeurs">
+    <div *ngFor="let contributorImpact of contributorsImpact">
+      <div class="authorImpact">{{contributorImpact.author}} / Commits: {{contributorImpact.number}} / {{contributorImpact.percent.toPrecision(3)}}% </div>
+      <mat-progress-bar [value]=contributorImpact.percent></mat-progress-bar>
+      <mat-divider></mat-divider>
+      <br />
+    </div>
+
+  </mat-tab>
+
+
+  <mat-tab label="Timeline">
+      <vertical-timeline>        
+          <vertical-timeline-card *ngFor="let commit of commits" [dateValue]="stringDateToDate(commit.date)">
+            <span style="font-weight: bold; font-size: 12px;">{{commit.author}}</span><br />
+            <span style="font-weight: bold; font-size: 12px;">{{commit.sha}}</span>
+          </vertical-timeline-card>
+          
+        </vertical-timeline>
+  </mat-tab>
+
+</mat-tab-group>
